@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= data.title %></title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            list-style: none;
+        }
+        body{
+            color:#fff;
+            width: 100vw;
+            min-height: 100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+        .origin{
+            position:fixed;
+            left: 0; 
+            top: 0;
+            background: #333;
+            color: #fff;
+            font-size: 12px;
+            padding: 3px 10px;
+        }
+        .poetry{
+            text-align: center;
+            max-width: 90%;
+            margin: 0 audo;
+        }
+        .poetry .title{
+            font-size: 36px;
+            line-height: 1.8;
+        }
+        .poetry a{
+            display: inline-block;
+            text-decoration: none;
+            color: #f60;
+            background:#fff;
+            font-size: 12px;
+            padding: 3px 12px;
+            margin: 20px auto;
+        }
+        .poetry .author{
+            font-size: 16px;
+            display: block;
+        }
+        .poetry .content{
+            padding-top: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+    <%- body %>
+
+    <div class="origin">
+        来自：<%= data.book %>
+    </div>
+
+    <script src="/js/jquery.js"></script>
+    <script>
+        function getRandomColor() {
+            return '#' +
+                (function (color) {
+                    return (color += '0123456789abcdef'[Math.floor(Math.random() * 16)])
+                        && (color.length == 6) ? color : arguments.callee(color);
+                })('');
+        }
+        $(function(){
+            console.log( getRandomColor() );
+            $('body').css({ 'background-color': getRandomColor(), 'color': '#fff' });
+        });
+    </script>
+</body>
+</html>
